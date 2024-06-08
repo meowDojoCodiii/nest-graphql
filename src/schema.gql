@@ -1,0 +1,39 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Cat {
+  createAt: DateTime
+  id: Int!
+  name: String!
+  updateAt: DateTime
+}
+
+type CatResponse {
+  data: Cat
+  message: String
+}
+
+input CreateCatInput {
+  name: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  createCat(createCatInput: CreateCatInput!): Cat!
+  removeCat(id: Int!): Cat!
+  updateCat(updateCatInput: UpdateCatInput!): Cat!
+}
+
+type Query {
+  cat(id: Int!): CatResponse!
+}
+
+input UpdateCatInput {
+  id: Int!
+  name: String
+}
